@@ -1,6 +1,6 @@
 {
   "name": "github-org-overview",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scans all repos of a github organization and check if published",
   "main": "lib/index.js",
   "bin": {
