@@ -4,7 +4,7 @@
   "description": "Scans all repos of a github organization and check if published",
   "main": "lib/index.js",
   "bin": {
-    "github-org-overview": "bin/github-org-overview.js"
+    "github-org-overview": "./bin/github-org-overview.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
