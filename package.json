@@ -1,0 +1,31 @@
+{
+  "name": "github-org-overview",
+  "version": "1.0.0",
+  "description": "Scans all repos of a github organization and check if published",
+  "main": "lib/index.js",
+  "bin": {
+    "github-org-overview": "bin/github-org-overview.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tobias Koppers @sokra",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.0.0",
+    "colors": "^1.1.0",
+    "github": "^0.2.4",
+    "minimist": "^1.1.1",
+    "prompt": "^0.2.14",
+    "supports-color": "^1.3.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webpack/github-org-overview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webpack/github-org-overview/issues"
+  },
+  "homepage": "https://github.com/webpack/github-org-overview#readme"
+}
