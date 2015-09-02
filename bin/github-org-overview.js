@@ -9,7 +9,20 @@ var configFile = path.resolve(__dirname, "../config.json");
 
 function loadConfiguration(callback) {
 	fs.exists(configFile, function(exist) {
-		if(exist) {
+		if(exist && argv.configure) {
+			var prevConfig = require(configFile);
+			prompt.get(["org"], function(err, result) {
+				var config = {
+					token: prevConfig.token,
+					org: result.org
+				};
+				fs.writeFile(configFile, JSON.stringify(config), function(err) {
+					if(err) return callback(err);
+					callback(null, config);
+				});
+			});
+		} else if(exist && !argv.reconfigure) {
+			console.log("Using configuration, pass --configure to reconfigure org, pass --reconfigure to reconfigure org and token.");
 			callback(null, require(configFile));
 			return;
 		} else {
@@ -31,6 +44,9 @@ loadConfiguration(function(err, configuration) {
 	if(err) {
 		console.error(err);
 		return;
+	}
+	if(argv._[0]) {
+		configuration.org = argv._[0];
 	}
 	var api = new GHOrgOverview(configuration);
 	api.load(function(err) {
